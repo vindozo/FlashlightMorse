@@ -27,19 +27,7 @@
     <preference name="android-targetSdkVersion" value="26" />
     <icon src="icon.png" />
 
-    <gap:plugin name="cordova-plugin-flashlight" source="npm" />    
-    <!-- for iOS -->
-    <feature name="Flashlight">
-      <param name="ios-package" value="Flashlight" />
-    </feature>
-    <!-- for Android -->
-    <feature name="Flashlight">
-      <param name="android-package" value="nl.xservices.plugins.Flashlight" />
-    </feature>
-    <!-- for WP8 -->
-    <feature name="Flashlight">
-      <param name="wp-package" value="Flashlight" />
-    </feature>
+    <plugin name="nl.x-services.plugins.flashlight" spec="2.0.1" source="pgb" />
     
     <access origin="*" />
     <allow-intent href="http://*/*" />
