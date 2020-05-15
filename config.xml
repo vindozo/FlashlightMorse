@@ -26,8 +26,8 @@
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-targetSdkVersion" value="26" />
     <icon src="icon.png" />
-    <preference name="phonegap-version" value="3.0.0" />
-    <gap:plugin name="nl.x-services.plugins.flashlight" />
+
+    <gap:plugin name="cordova-plugin-flashlight" source="npm" />    
     <!-- for iOS -->
     <feature name="Flashlight">
       <param name="ios-package" value="Flashlight" />
