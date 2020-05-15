@@ -16,33 +16,37 @@ html, body {
 }
 </style>
 <script>
-window.onload = function() {
-    document.addEventListener("deviceready", init, false);
-}
-function init() {
-    document.getElementById("btnClick").addEventListener("click", clicked, false);
-    document.getElementById("btnClick").addEventListener("click", clicked1, false);
-    document.getElementById("btnClick").addEventListener("click", clicked2, false);
-}
+
 function clicked() {
     alert('on');
 }
-function clicked1() {
-    window.plugins.flashlight.switchOn(function() {}, function() {}, {intensity: 0.3});
-}
-function clicked2() {
-    window.plugins.flashlight.switchOff();
-}
+window.plugins.flashlight.available(function(isAvailable) {
+  if (isAvailable) {
+ 
+    // switch on
+    window.plugins.flashlight.switchOn(
+      function() {}, // optional success callback
+      function() {}, // optional error callback
+      {intensity: 0.3} // optional as well
+    );
+ 
+    // switch off after 3 seconds
+    setTimeout(function() {
+      window.plugins.flashlight.switchOff(); // success/error callbacks may be passed
+    }, 3000);
+ 
+  } else {
+    alert("Flashlight not available on this device");
+  }
+});
 </script>
 </head>
 <body>
     FlashlightMorse
     <br>
     <button id="btnClick" onclick="clicked()">alert</button>
-    <button id="btnClick1" onclick="clicked1()">On</button>
-    <button id="btnClick2" onclick="clicked2()">Off</button>
     
-    <iframe src="http://rt.plus" width="468" height="60" align="left">
+    <iframe src="http://rt.plus" width="468" height="300" >
     
     </iframe>
     
