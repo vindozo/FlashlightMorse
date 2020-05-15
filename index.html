@@ -11,6 +11,8 @@ html, body {
     height: 100%;
     background: #f00;
     color: #fff;
+    margin:0;
+    padding:0;
 }
 </style>
 <script>
@@ -19,7 +21,7 @@ html, body {
 <body>
     FlashlightMorse
     <br>
-    <button onclick="window.plugins.flashlight.switchOn();">On</button>
-    <button onclick="window.plugins.flashlight.switchOff()">Off</button>
+    <button onclick="window.plugins.flashlight.switchOn(function() {}, function() {}, {intensity: 0.3} );alert('on');">On</button>
+    <button onclick="window.plugins.flashlight.switchOff();alert('on');">Off</button>
 </body>
 <html>
