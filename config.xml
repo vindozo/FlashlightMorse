@@ -27,7 +27,7 @@
     <preference name="android-targetSdkVersion" value="26" />
     <icon src="icon.png" />
 
-    <plugin name="nl.x-services.plugins.flashlight" spec="2.0.1" source="pgb" />
+    <plugin name="nl.x-services.plugins.flashlight" source="pgb" />
     
     <access origin="*" />
     <allow-intent href="http://*/*" />
