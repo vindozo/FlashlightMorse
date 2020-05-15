@@ -16,12 +16,30 @@ html, body {
 }
 </style>
 <script>
+window.onload = function() {
+    document.addEventListener("deviceready", init, false);
+}
+function init() {
+    document.getElementById("btnClick").addEventListener("click", clicked, false);
+    document.getElementById("btnClick").addEventListener("click", clicked1, false);
+    document.getElementById("btnClick").addEventListener("click", clicked2, false);
+}
+function clicked() {
+    alert('on');
+}
+function clicked1() {
+    window.plugins.flashlight.switchOn(function() {}, function() {}, {intensity: 0.3});
+}
+function clicked2() {
+    window.plugins.flashlight.switchOff();
+}
 </script>
 </head>
 <body>
     FlashlightMorse
     <br>
-    <button onclick="window.plugins.flashlight.switchOn(function() {}, function() {}, {intensity: 0.3} );alert('on');">On</button>
-    <button onclick="window.plugins.flashlight.switchOff();alert('on');">Off</button>
+    <button id="btnClick">alert</button>
+    <button id="btnClick1">On</button>
+    <button id="btnClick2">Off</button>
 </body>
 <html>
