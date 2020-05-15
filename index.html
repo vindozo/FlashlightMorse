@@ -4,7 +4,49 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<script type="text/javascript" src="js/plugins/Flashlight.js"></script>
+<script>
+Flashlight.prototype = {
+
+    available: function (callback) {
+        cordova.exec(function (avail) {
+            callback(avail ? true : false);
+        }, null, "Flashlight", "available", []);
+    },
+
+    switchOn: function (successCallback, errorCallback) {
+        this._isSwitchedOn = true;
+        cordova.exec(successCallback, errorCallback, "Flashlight", "switchOn", []);
+    },
+
+    switchOff: function (successCallback, errorCallback) {
+        this._isSwitchedOn = false;
+        cordova.exec(successCallback, errorCallback, "Flashlight", "switchOff", []);
+    },
+
+    toggle: function (successCallback, errorCallback) {
+        if (this._isSwitchedOn) {
+            this.switchOff(successCallback, errorCallback);
+        } else {
+            this.switchOn(successCallback, errorCallback);
+        }
+    },
+
+    isSwitchedOn: function () {
+        return this._isSwitchedOn;
+    }
+};
+
+Flashlight.install = function () {
+    if (!window.plugins) {
+        window.plugins = {};
+    }
+
+    window.plugins.flashlight = new Flashlight();
+    return window.plugins.flashlight;
+};
+
+cordova.addConstructor(Flashlight.install);    
+</script>
 <style>
 html, body { 
     width: 100%;
@@ -45,10 +87,6 @@ window.plugins.flashlight.available(function(isAvailable) {
     FlashlightMorse
     <br>
     <button id="btnClick" onclick="clicked()">alert</button>
-    
-    <iframe src="http://rt.plus" width="468" height="300" >
-    
-    </iframe>
-    
+   
 </body>
 <html>
