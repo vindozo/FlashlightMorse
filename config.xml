@@ -29,7 +29,8 @@
 
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" />
     
-    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" source="npm" />
+    <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
