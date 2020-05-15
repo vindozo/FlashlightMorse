@@ -41,8 +41,6 @@
       <param name="wp-package" value="Flashlight" />
     </feature>
     
-    <uses-permission android:name="android.permission.CAMERA"/>
-    
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
