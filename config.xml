@@ -30,6 +30,8 @@
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" />
     
     <plugin name="cordova-plugin-whitelist" source="npm" />
+    <feature name="http://api.phonegap.com/1.0/camera" />
+    
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
